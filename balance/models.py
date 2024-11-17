@@ -44,6 +44,18 @@ class ListaMovimientos:
                 )
                 self.movimientos.append(movimiento)
 
+    def guardar(self):
+        with open(RUTA_FICHERO, 'w') as fichero:
+            cabeceras = list(self.movimientos[0]._dict_.keys())
+            cabeceras.remove('errores')
+            writer = csv.DictWriter(fichero, fieldnames=cabeceras)
+            writer.writeheader()
+
+            for mov in self.movimientos
+            mov_dict = mov._dict_
+            mov_dict.pop('errores')
+            writer.writerow(mov_dict)
+
     def __str__(self):
         result = ''
         for mov in self.movimientos:
