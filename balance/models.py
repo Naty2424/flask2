@@ -37,7 +37,7 @@ class ListaMovimientos:
             reader = csv.DictReader(fichero)
             for fila in reader:
                 movimiento = Movimiento(
-                    fila.get('fecha', None),
+                    fila.get('fecha', ''),
                     fila.get('concepto', 'Varios'),
                     fila.get('ingreso_gasto', '-'),
                     fila.get('cantidad', 0)
